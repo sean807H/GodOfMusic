@@ -1,0 +1,119 @@
+.noto-sans-kr-uniquifier {
+    font-family: "Noto Sans KR", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Noto Sans KR", serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+header img.godofmusic {
+    width: 200px;
+}
+
+.question-box {
+    background-color: #fff;
+    color: #000;
+    width: 1050px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.question-box h2 {
+    font-size: 45px; /* 문제 폰트 크기를 45px로 설정 */
+    font-family: "Noto Sans KR", serif;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.question-box p {
+    font-size: 45px; /* 문제 텍스트의 폰트 크기도 45px로 설정 */
+    font-weight: bold;
+}
+
+.question-mark-box {
+    display: inline-block;
+    border: 3px solid #000; /* 테두리 두께를 3px로 변경 */
+    padding: 2px 40px; /* 크기를 문제 텍스트 크기에 맞게 조정 */
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 45px; /* 물음표 직사각형의 폰트 크기도 45px로 설정 */
+    font-family: "Noto Sans KR", serif;
+    height: 50px; /* 원하는 높이로 설정 */
+    line-height: 50px; /* 높이에 맞춰 텍스트 정렬 */
+}
+
+.answer-box {
+    margin-top: 100px;
+}
+
+.answer-box input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    width: 1000px;
+    height: 45px;
+    border-radius: 5px;
+    font-family: "Noto Sans KR", serif;
+    max-width: 100%;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Noto Sans KR", serif;
+    width: 270px;
+    height: 70px;
+    margin-top: 70px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+}
+
+.result-box {
+    margin-top: 20px;
+}
+
+.result-box p {
+    font-size: 24px;
+    font-family: "Noto Sans KR", serif;
+    font-weight: bold;
+}
+
+.result-box button {
+    font-size: 30px;
+    width: 50px;
+    margin-top: 20px;
+    font-family: "Noto Sans KR", serif;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
