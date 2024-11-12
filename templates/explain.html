@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악의 신</title>
+    <link rel="stylesheet" href="/static/explain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dongle&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nuosu+SIL&family=Plaster&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+        </header>
+        <div class="question-box">
+            <h2 id="question-title"></h2>
+            <p id="question-text"></p>
+        </div>
+        <div class="answer-box">
+            <input type="text" id="user-answer" placeholder="정답을 입력하세요">
+        </div>
+        <button class="submit-button" onclick="submitAnswer()">입력하기</button>
+        <div class="result-box" id="result-box" style="display: none;">
+            <p id="result-message"></p>
+            <button onclick="nextQuestion()">></button>
+        </div>
+    </div>
+    <input type="hidden" id="correct-answer">
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
