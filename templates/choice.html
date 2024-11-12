@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악의 신</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='choice.css') }}">
+</head>
+<body>
+    <!-- 로고 -->
+    <div class="logo">
+        <img src="{{ url_for('static', filename='godofmusic.png') }}" alt="Logo" width="356" height="139">
+    </div>
+
+    <!-- 선택 박스 -->
+    <div class="choices">
+        <div class="choice" onclick="navigateToQuiz('lyrics')">
+            <img src="{{ url_for('static', filename='lyrics.png') }}" alt="Lyrics Quiz">
+            <span>가사 네모 퀴즈</span>
+        </div>
+        <div class="choice" onclick="navigateToQuiz('title')">
+            <img src="{{ url_for('static', filename='explain.png') }}" alt="Title Quiz">
+            <span>곡 설명 제목 퀴즈</span>
+        </div>
+        <div class="choice" onclick="navigateToQuiz('karaoke')">
+            <img src="{{ url_for('static', filename='Karaoke.png') }}" alt="Karaoke Quiz">
+            <span>노래방 반주 퀴즈</span>
+        </div>
+        <div class="choice" onclick="navigateToQuiz('music_video')">
+            <img src="{{ url_for('static', filename='music-video.png') }}" alt="Music Video Quiz">
+            <span>뮤직 비디오 퀴즈</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='choice.js') }}"></script>
+</body>
+</html>

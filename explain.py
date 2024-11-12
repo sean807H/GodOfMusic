@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import random
 
+def title_quiz():
+    return render_template('title_quiz.html')
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # 비밀 키 설정
 
