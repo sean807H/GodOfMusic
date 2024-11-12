@@ -72,3 +72,21 @@ function displayScore(correctCount) {
     document.querySelector(".next-button").style.display = "none";  // 다음 버튼 숨김
     document.getElementById("user-answer").disabled = true;  // 정답 입력창 비활성화
 }
+
+function fetchQuestion() {
+    fetch('/get_question')
+        .then(response => response.json())
+        .then(data => {
+            if (data.end) {
+                // 10문제 종료 시 결과 페이지로 이동
+                window.location.href = '/result';
+            } else {
+                // 문제 표시 및 기존 정답 입력값 초기화
+                document.getElementById("question-title").textContent = data.question.split("\n")[0];
+                document.getElementById("question-text").innerHTML = data.question.split("\n").slice(1).join("<br>").replace("□", '<span class="question-mark-box">?</span>');
+                document.querySelector(".answer-box").classList.remove("hidden");
+                document.querySelector(".submit-button").classList.remove("hidden");
+                document.getElementById("user-answer").value = "";  // 이전 입력값 제거
+            }
+        });
+}

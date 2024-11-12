@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import random
 
 app = Flask(__name__)
@@ -6,8 +6,8 @@ app.secret_key = 'your_secret_key'  # 비밀 키 설정
 
 # 예시 문제 리스트
 questions = [
-    {"question": "DAY6 <Happy>\n그런 날이 있을까요?\n□을 찾게 되는 날이요", "answer": "꿈"},
-    {"question": "QWER <내 이름 맑음>\n어쩌다 고작 그 □도 못 참고\n□멍청하게 다 던졌는지", "answer": "마음"},
+    {"question": "DAY6 <Happy>\n그런 날이 있을까요?\n□을 찾게 되는 날이요", "answer": "꿈"},    
+    {"question": "QWER <내 이름 맑음>\n어쩌다 고작 그 □도 못 참고\n멍청하게 다 던졌는지", "answer": "마음"},
     {"question": "에스파 <Supernova>\nCan’t stop hyperstellar\n□그걸 찾아", "answer": "원초"},
     {"question": "이클립스 <소나기>\n그대는 □입니다\n하늘이 내려준", "answer": "선물"},
     {"question": "(여자)아이들 <클락션>\n힙합보다 멋진 발라드틱 Romantic show\n너 처음 본 순간 완전 딱 □인걸", "answer": "천생연분"},
@@ -28,7 +28,7 @@ def index():
 @app.route('/get_question', methods=['GET'])
 def get_question():
     if session['answered_count'] >= 10:
-        # 10문제를 다 풀면 종료 메시지와 맞춘 문제 수 반환
+        # 10문제를 다 풀면 결과 화면으로 리다이렉트
         return jsonify({"end": True, "correct_count": session['correct_count']})
     
     # 문제 풀에서 하나의 문제를 추출
@@ -50,6 +50,13 @@ def check_answer():
         session['correct_count'] += 1  # 맞춘 정답 수 증가
 
     return jsonify({"result": is_correct, "correct_answer": correct_answer})
+
+@app.route('/result')
+def result():
+    # 결과 페이지로 이동
+    correct_count = session.get('correct_count', 0)
+    incorrect_count = 10 - correct_count
+    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)

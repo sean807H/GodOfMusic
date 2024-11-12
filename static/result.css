@@ -1,0 +1,63 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Noto Sans KR", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+header img.godofmusic {
+    width: 150px;
+}
+
+.result-box {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;  /* 세로 정렬 */
+    align-items: center;     /* 가운데 정렬 */
+}
+
+.result-box h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;     /* 제목 아래 공간 추가 */
+}
+
+.result-box p {
+    font-size: 24px;
+    margin: 10px 0;          /* 문단 사이 공간 추가 */
+}
+
+.result-box button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 10px;        /* 버튼 간격을 동일하게 설정 */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    width: 80%;              /* 버튼을 전체 너비의 80%로 설정 */
+    max-width: 300px;        /* 최대 너비 제한 */
+}

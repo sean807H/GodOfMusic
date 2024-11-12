@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 결과</title>
+    <link rel="stylesheet" href="/static/result.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+        </header>
+        <div class="result-box">
+            <h2>퀴즈 결과</h2>
+            <p>정답: {{ correct_count }}개</p>
+            <p>오답: {{ incorrect_count }}개</p>
+            <button onclick="location.href='/'">다시 시작하기</button>
+            <button onclick="location.href='/another-quiz'">다른 퀴즈 도전 하기</button>
+        </div>
+    </div>
+</body>
+</html>
