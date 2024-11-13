@@ -1,19 +1,18 @@
-// 각 퀴즈 경로를 설정합니다.
 function navigateToQuiz(quizType) {
     let url = '';
     
     switch (quizType) {
         case 'lyrics':
-            url = "{{ url_for('lyrics_quiz') }}";
+            url = "/game"; // /game으로 이동
             break;
         case 'title':
-            url = "{{ url_for('title_quiz') }}";
+            url = "/explain"; // /title_quiz로 이동
             break;
         case 'karaoke':
-            url = "{{ url_for('karaoke_quiz') }}";
+            url = "/karaoke_quiz"; // /karaoke_quiz로 이동
             break;
         case 'music_video':
-            url = "{{ url_for('music_video_quiz') }}";
+            url = "/music_video_quiz"; // /music_video_quiz로 이동
             break;
         default:
             console.error("Invalid quiz type");
@@ -23,5 +22,3 @@ function navigateToQuiz(quizType) {
     // 선택한 경로로 이동
     window.location.href = url;
 }
-
-

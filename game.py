@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import random
+import secrets
 
 def lyrics_quiz():
     return render_template('lyrics_quiz.html')
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # 비밀 키 설정
+app.secret_key = secrets.token_bytes(16)  # 비밀 키 설정
 
 # 예시 문제 리스트
 questions = [
@@ -21,12 +22,12 @@ questions = [
     {"question": "윤하 <사건의 지평선>\n노력은 우리에게 정답이 아니라서\n마지막 선물은 산뜻한 □", "answer": "안녕"}
 ]
 
-@app.route('/')
-def index():
+def game():
+    print("gamePage")
     session['answered_count'] = 0  # 문제를 푼 횟수 초기화
     session['correct_count'] = 0  # 맞춘 정답 수 초기화
     session['question_pool'] = random.sample(questions, len(questions))  # 문제를 무작위로 섞어 풀 생성
-    return render_template('index.html')
+    return render_template('game.html')
 
 @app.route('/get_question', methods=['GET'])
 def get_question():
