@@ -8,12 +8,11 @@
 body {
     background-color: #000;
     color: #fff;
-    font-family: "Noto Sans KR", serif;
+    font-family: "Noto Sans KR", sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-
 
 header {
     position: absolute;
@@ -25,12 +24,11 @@ header img.godofmusic {
     width: 200px;
 }
 
-
-.sound-icon {
-    font-size: 100px; /* 아이콘 크기 조정 */
-    color: #fff;
-    cursor: pointer;
+.scene-image {
+    width: 884px;
+    height: 423px;
     margin-bottom: 50px;
+    margin-top: 150px;
 }
 
 .answer-box input[type="text"] {
@@ -56,6 +54,7 @@ header img.godofmusic {
     background-color: #fff;
     color: #000;
 }
+
 
 .result-box {
     margin-top: 20px;
@@ -83,5 +82,23 @@ header img.godofmusic {
 }
 
 #result-text {
+    font-weight: normal;    
+}
+
+#result-text {
     font-weight: normal;
+}
+
+.result-image {
+    margin-top: 150px;
+    width: 884px;
+    height: auto; /* 비율 유지 */
+    max-width: 100%;
+    display: block;
+}
+
+.image-container {
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center; /* 가로 가운데 정렬 */
 }
