@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import random
 import secrets
-from game import game   # game 함수 가져오기
-from explain import title_quiz # title_quiz 함수 가져오기
 
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes(16)  # 세션을 위한 비밀 키 설정
+
 
 # 예시 문제 리스트
 questions = [
@@ -34,61 +33,96 @@ explain = [
     {"question": "지코\n유행과 상관없이 빛나는 개성을 담은 곡으로 강렬한\n비트와 중독적인 훅이 특징이다.", "answer": "새삥"}
 ]
 
+mvquiz_data = [
+    {"image": "/static/images/apt.png", "answer": "apt,아파트"},
+    {"image": "/static/images/사랑돈명예.png", "answer": "사랑 돈 명예 ,love money fame"},
+    {"image": "/static/images/boomboombase.png", "answer": "boomboombase ,붐붐베이스"},
+    {"image": "/static/images/steady.png", "answer": "steady , 스테디"},
+    {"image": "/static/images/supersonic.png", "answer": "supersonic, 수퍼소닉"},
+    {"image": "/static/images/xo.png", "answer": "xo"},
+    {"image": "/static/images/mantra.png", "answer": "mantra , 만트라"},
+    {"image": "/static/images/power.png", "answer": "power , 파워"},
+    {"image": "/static/images/serenade.png", "answer": "serenade,세레나데"}
+]
 
+# 라우트 함수
 @app.route('/')
 def choice():
     return render_template('choice.html')
 
 @app.route('/game')
 def show_game():
-    session['answered_count'] = 0  # 문제를 푼 횟수 초기화
-    session['correct_count'] = 0  # 맞춘 정답 수 초기화
-    session['question_pool'] = random.sample(questions, len(questions))  # 문제를 무작위로 섞어 풀 생성
+    session['answered_count'] = 0
+    session['correct_count'] = 0
+    session['question_pool'] = random.sample(questions, len(questions))
+    session['quiz_type'] = 'lyrics'  # 'lyrics' 퀴즈 타입 설정
     return render_template('game.html')
 
 @app.route('/explain')
 def show_explain():
-    session['answered_count'] = 0  # 문제를 푼 횟수 초기화
-    session['correct_count'] = 0  # 맞춘 정답 수 초기화
-    session['question_pool'] = random.sample(explain, len(explain))  # 문제를 무작위로 섞어 풀 생성
+    session['answered_count'] = 0
+    session['correct_count'] = 0
+    session['question_pool'] = random.sample(explain, len(explain))
+    session['quiz_type'] = 'title'  # 'title' 퀴즈 타입 설정
     return render_template('explain.html')
 
-@app.route('/title_quiz')
-def show_title_quiz():
-    return title_quiz()
+
+@app.route('/mvquiz')
+def show_mvquiz():
+    session['answered_count'] = 0
+    session['correct_count'] = 0
+    session['question_pool'] = random.sample(mvquiz_data, len(mvquiz_data))
+    session['quiz_type'] = 'music_video'  # 'music_video' 퀴즈 타입 설정
+    return render_template('mvquiz.html')
+
+@app.route('/restart_quiz/<quiz_type>')
+def restart_quiz(quiz_type):
+    if quiz_type == 'lyrics':
+        return redirect(url_for('show_game'))
+    elif quiz_type == 'title':
+        return redirect(url_for('show_explain'))
+    elif quiz_type == 'karaoke':
+        return redirect(url_for('show_songquiz'))
+    elif quiz_type == 'music_video':
+        return redirect(url_for('show_mvquiz'))
+    else:
+        return redirect(url_for('choice'))  # 기본적으로 메인 페이지로 리디렉션
+
 
 @app.route('/get_question', methods=['GET'])
 def get_question():
     if session['answered_count'] >= 10:
-        # 10문제를 다 풀면 결과 화면으로 리다이렉트
-        return jsonify({"end": True, "correct_count": session['correct_count']})
+        # 퀴즈가 끝났을 때 결과 페이지로 이동하면서 현재 퀴즈 타입을 전달
+        quiz_type = session.get('quiz_type', 'lyrics')  # 기본값은 'lyrics'
+        return jsonify({"end": True, "correct_count": session['correct_count'], "quiz_type": quiz_type})
     
-    # 문제 풀에서 하나의 문제를 추출
     question = session['question_pool'].pop()
-    session['current_answer'] = question['answer']  # 현재 문제의 정답 저장
+    session['current_answer'] = question['answer']
     return jsonify({"question": question['question'], "end": False})
 
 @app.route('/check_answer', methods=['POST'])
 def check_answer():
     data = request.json
-    user_answer = data.get("answer", "").strip()  # 사용자의 입력 정답
-    correct_answer = session['current_answer']  # 현재 문제의 정답
+    user_answer = data.get("answer", "").strip()
+    correct_answer = session['current_answer']
 
-    # 사용자의 정답이 맞는지 확인
     is_correct = user_answer.lower() == correct_answer.lower()
-    session['answered_count'] += 1  # 푼 문제 수 증가
+    session['answered_count'] += 1
 
     if is_correct:
-        session['correct_count'] += 1  # 맞춘 정답 수 증가
+        session['correct_count'] += 1
 
     return jsonify({"result": is_correct, "correct_answer": correct_answer})
 
 @app.route('/result')
 def result():
-    # 결과 페이지로 이동
     correct_count = session.get('correct_count', 0)
     incorrect_count = 10 - correct_count
-    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count)
+    
+    # 현재 퀴즈 타입을 세션에서 가져옴 (기본값은 'lyrics')
+    quiz_type = session.get('quiz_type', 'lyrics')
+    
+    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count, quiz_type=quiz_type)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)

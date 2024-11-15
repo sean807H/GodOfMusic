@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퀴즈 결과</title>
+    <title>음악의 신</title>
     <link rel="stylesheet" href="/static/result.css">
 </head>
 <body>
@@ -15,8 +15,12 @@
             <h2>퀴즈 결과</h2>
             <p>정답: {{ correct_count }}개</p>
             <p>오답: {{ incorrect_count }}개</p>
-            <button onclick="location.href='/'">다시 시작하기</button>
-            <button onclick="location.href='/another-quiz'">다른 퀴즈 도전 하기</button>
+
+            <!-- 다시 시작하기 버튼: 현재 퀴즈 타입에 맞게 다시 시작 -->
+            <button onclick="location.href='/restart_quiz/{{ quiz_type }}'">다시 시작하기</button>
+
+            <!-- 다른 게임 도전하기 버튼 -->
+            <button onclick="location.href='/'">다른 퀴즈 도전 하기</button>
         </div>
     </div>
 </body>
