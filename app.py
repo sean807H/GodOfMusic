@@ -21,11 +21,11 @@ questions = [
 
 explain = [
     {"question": "세븐틴\n시련과 좌절을 겪으며 무한성장 중인 세븐틴을 표현한\n강렬한 메시지가 특징이다.", "answer": "손오공"},
-    {"question": "TWS (투어스)\n첫 만남의 설렘 속 막연함을 앞으로의 빛나는\n날들에 대한 기대감으로 극복하는 이야기.", "answer": "첫 만남은 계획대로 되지않아"},
-    {"question": "오마이걸\n친구에게 설렘을 느끼는 상황을 보드게임에 표현한\n가사가 인상적이다.", "answer": "살짝 설렜어"},
+    {"question": "TWS (투어스)\n첫 만남의 설렘 속 막연함을 앞으로의 빛나는\n날들에 대한 기대감으로 극복하는 이야기.", "answer": "첫 만남은 계획대로 되지않아, 첫만남은 계획대로 되지않아, 첫만남은계획대로되지않아"},
+    {"question": "오마이걸\n친구에게 설렘을 느끼는 상황을 보드게임에 표현한\n가사가 인상적이다.", "answer": "살짝 설렜어, 살짝설렜어"},
     {"question": "스트레이 키즈\n '애들 중 가장 별나고, 애들 중 가장 빛난다'는\n메시지를 담아 여러 곡이 합쳐진 듯한 구성이며,\n중독적인 리듬의 훅이 특징이다.", "answer": "특"},
     {"question": "볼빨간사춘기\n바쁜 일상 속 자유롭게 떠나고 싶은 마음을 담은 곡이다.", "answer": "여행"},
-    {"question": "EXO (엑소)\n떠나 보낸 첫사랑을 떠올리며 지난 시간을 되돌리고\n싶은 마음을 담은 어쿠스틱 팝곡.", "answer": "첫 눈"},
+    {"question": "EXO (엑소)\n떠나 보낸 첫사랑을 떠올리며 지난 시간을 되돌리고\n싶은 마음을 담은 어쿠스틱 팝곡.", "answer": "첫 눈, 첫눈"},
     {"question": "스테이씨\n순수하게 봐주길 바라는 마음을 담았고, 감각적인\nBRASS 사운드를 통해 상큼하면서 우아한 분위기를 표현.", "answer": "색안경"},
     {"question": "여자친구\n달 구경하는 시간으로 사랑하는 사람을 떠올리는\n의미를 담은 아름다운 타이틀곡.", "answer": "밤"},
     {"question": "엔믹스\n그루비한 리듬 기반의 올드스쿨 힙합과 컨트리\n장르가 어우러진 MIXX POP.", "answer": "별별별"},
@@ -33,22 +33,22 @@ explain = [
 ]
 
 songquiz_data = [
-    {"audio": "/static/audio/손오공.mp3", "answer": "손오공", "music_video_url": "https://www.youtube.com/embed/-GQg25oP0S4"},
-    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "Dunk shot,덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
-    {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird,송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
-    {"audio": "/static/audio/WISH.mp3", "answer": "Wish,위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
-    {"audio": "/static/audio/Siren.mp3", "answer": "Siren,사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
-    {"audio": "/static/audio/부모님관람불가.mp3", "answer": "부모님관람불가", "music_video_url": "https://www.youtube.com/embed/YkCXVgcsGTU"},
-    {"audio": "/static/audio/박수.mp3", "answer": "박수", "music_video_url": "https://www.youtube.com/embed/CyzEtbG-sxY"},
+    {"audio": "/static/audio/손오공.mp3", "answer": "super, 손오공", "music_video_url": "https://www.youtube.com/embed/-GQg25oP0S4"},
+    {"audio": "/static/audio/Dunk Shot.mp3", "answer": "Dunk shot, 덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
+    {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird, 송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
+    {"audio": "/static/audio/WISH.mp3", "answer": "Wish, 위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
+    {"audio": "/static/audio/Siren.mp3", "answer": "Siren, 사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
+    {"audio": "/static/audio/부모님관람불가.mp3", "answer": "부모님관람불가, 부모님 관람불가", "music_video_url": "https://www.youtube.com/embed/YkCXVgcsGTU"},
+    {"audio": "/static/audio/박수.mp3", "answer": "clap, 박수", "music_video_url": "https://www.youtube.com/embed/CyzEtbG-sxY"},
     {"audio": "/static/audio/Darl+ing.mp3", "answer": "Darl+ing, 달링", "music_video_url": "https://www.youtube.com/embed/bTtNV6hgDno"},
-    {"audio": "/static/audio/Happy.mp3", "answer": "Happy,해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
-    {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash,위플래쉬,위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"}
+    {"audio": "/static/audio/Happy.mp3", "answer": "Happy, 해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
+    {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash, 위플래쉬, 위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"}
 ]
 
 mvquiz_data = [
     {"image": "/static/images/apt.png", "answer": "apt, 아파트"},
-    {"image": "/static/images/사랑돈명예.png", "answer": "사랑 돈 명예, love money fame"},
-    {"image": "/static/images/boomboombase.png", "answer": "boomboombase, 붐붐베이스"},
+    {"image": "/static/images/사랑돈명예.png", "answer": "사랑 돈 명예, love money fame, 사랑돈명예"},
+    {"image": "/static/images/boomboombase.png", "answer": "boom boom base, boomboombase, 붐붐베이스"},
     {"image": "/static/images/steady.png", "answer": "steady, 스테디"},
     {"image": "/static/images/supersonic.png", "answer": "supersonic, 수퍼소닉"},
     {"image": "/static/images/xo.png", "answer": "xo"},
@@ -70,8 +70,6 @@ def choice():
 @app.route('/another_quiz')
 def another_quiz():
     return redirect(url_for('choice'))
-
-
 
 @app.route('/game')
 def show_game():
@@ -289,7 +287,8 @@ def check_answer():
         if is_correct:
             session['correct_count'] += 1
 
-        response_data = {"result": is_correct, "correct_answer": correct_answer}
+        response_data = {"result": is_correct, "correct_answer": correct_answers[0]}
+
 
         return jsonify(response_data)
 

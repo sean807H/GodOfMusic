@@ -16,7 +16,9 @@
 <body>
     <div class="container">
         <header>
-            <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/godofmusic.png') }}" alt="음악의 신" class="godofmusic">
+            </a>
         </header>
         <div class="question-box">
             <h2 id="question-title"></h2>

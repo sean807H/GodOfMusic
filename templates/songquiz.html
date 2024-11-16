@@ -17,7 +17,9 @@
 <body>
     <div class="container" data-audio="{{ audio_file }}">
         <header>
-            <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/godofmusic.png') }}" alt="음악의 신" class="godofmusic">
+            </a>
         </header>
             <i class="bi bi-volume-up-fill sound-icon" id="sound-icon" onclick="playAudio()"></i>
             <div class="answer-box">

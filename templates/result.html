@@ -9,7 +9,9 @@
 <body>
     <div class="container">
         <header>
-            <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/godofmusic.png') }}" alt="음악의 신" class="godofmusic">
+            </a>
         </header>
         <div class="result-box">
             <h2>퀴즈 결과</h2>

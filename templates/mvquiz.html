@@ -15,7 +15,9 @@
 
 <body>
     <header>
-        <img src="/static/godofmusic.png" alt="음악의 신" class="godofmusic">
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='images/godofmusic.png') }}" alt="음악의 신" class="godofmusic">
+        </a>
     </header>
     <div class="image-container">
         <img id="scene-image" src="{{ scene['image'] }}" alt="뮤직비디오 장면" class="scene-image">

@@ -9,26 +9,32 @@
 <body>
     <!-- 로고 -->
     <div class="logo">
-        <img src="{{ url_for('static', filename='godofmusic.png') }}" alt="Logo" width="356" height="139">
+        <a href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='images/godofmusic.png') }}" alt="Logo" width="356" height="139">
+        </a>
     </div>
 
     <!-- 선택 박스 -->
     <div class="choices">
         <div class="choice" onclick="navigateToQuiz('lyrics')">
-            <img src="{{ url_for('static', filename='lyrics.png') }}" alt="Lyrics Quiz">
-            <span>가사 네모 퀴즈</span>
+            <img src="{{ url_for('static', filename='/images/lyrics.png') }}" alt="Lyrics Quiz">
+            <div id="first">
+                <span class="gasa">가사</span>
+                <span class="nemo">네모</span>
+                <span class="quiz">퀴즈</span>
+            </div>
         </div>
         <div class="choice" onclick="navigateToQuiz('title')">
-            <img src="{{ url_for('static', filename='explain.png') }}" alt="Title Quiz">
-            <span>곡 설명 제목 퀴즈</span>
+            <img src="{{ url_for('static', filename='/images/explain.png') }}" alt="Title Quiz">
+            <span id="second">곡 설명 제목 퀴즈</span>
         </div>
         <div class="choice" onclick="navigateToQuiz('karaoke')">
-            <img src="{{ url_for('static', filename='karaoke.png') }}" alt="Karaoke Quiz">
-            <span>노래방 반주 퀴즈</span>
+            <img src="{{ url_for('static', filename='/images/karaoke.png') }}" alt="Karaoke Quiz">
+            <span id="third">노래방<br>반주 퀴즈</span>
         </div>
         <div class="choice" onclick="navigateToQuiz('music_video')">
-            <img src="{{ url_for('static', filename='music-video.png') }}" alt="Music Video Quiz">
-            <span>뮤직 비디오 퀴즈</span>
+            <img src="{{ url_for('static', filename='/images/music-video.png') }}" alt="Music Video Quiz">
+            <span id="four">뮤직 비디오 퀴즈</span>
         </div>
     </div>
 
