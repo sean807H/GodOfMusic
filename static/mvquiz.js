@@ -35,7 +35,7 @@ function nextQuestion() {
 
     if (isEndQuiz) {
         // 마지막 문제라면 결과 페이지로 이동
-        window.location.href = '/results';
+        window.location.href = '/result';
     } else {
         // 다음 문제로 이동
         fetch('/load_next_question')

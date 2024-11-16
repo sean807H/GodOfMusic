@@ -82,12 +82,12 @@ def load_next_question():
     })
 
 
-@app.route('/results')
-def results():
+@app.route('/result')
+def result():
     correct_count = session.get('correct_count', 0)
     incorrect_count = 10 - correct_count
-    # result.html 템플릿을 렌더링하도록 수정
-    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count)
+    quiz_type = session.get('quiz_type', 'music_video')  # 기본적으로 'karaoke'로 설정
+    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count, quiz_type=quiz_type)
 
 @app.route('/restart_quiz/<quiz_type>')
 def restart_quiz(quiz_type):
@@ -97,6 +97,10 @@ def restart_quiz(quiz_type):
         return redirect(url_for('quiz'))  # mvquiz 첫 화면으로 이동
     else:
         return redirect("http://localhost:5000/")  # 다른 퀴즈 페이지(app.py)로 이동
+
+@app.route('/another_quiz')
+def another_quiz():
+    return redirect("http://localhost:5000/")  # 다른 퀴즈로 이동
 
 
 if __name__ == "__main__":

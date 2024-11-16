@@ -1,5 +1,9 @@
-from flask import render_template, session
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import random
+import secrets
+
+app = Flask(__name__)
+app.secret_key = secrets.token_bytes(16)  # 세션을 위한 비밀 키 설정
 
 # 예시 문제 리스트
 questions = [
@@ -20,3 +24,41 @@ def game():
     session['correct_count'] = 0  # 맞춘 정답 수 초기화
     session['question_pool'] = random.sample(questions, len(questions))  # 문제를 무작위로 섞어 풀 생성
     return render_template('game.html')
+
+@app.route('/get_question', methods=['GET'])
+def get_question():
+    if session['answered_count'] >= 10:
+        # 퀴즈가 끝났을 때 결과 페이지로 이동하면서 현재 퀴즈 타입을 전달
+        quiz_type = session.get('quiz_type', 'lyrics')  # 기본값은 'lyrics'
+        return jsonify({"end": True, "correct_count": session['correct_count'], "quiz_type": quiz_type})
+    
+    question = session['question_pool'].pop()
+    session['current_answer'] = question['answer']
+    return jsonify({"question": question['question'], "end": False})
+
+@app.route('/check_answer', methods=['POST'])
+def check_answer():
+    data = request.json
+    user_answer = data.get("answer", "").strip()
+    correct_answer = session['current_answer']
+
+    is_correct = user_answer.lower() == correct_answer.lower()
+    session['answered_count'] += 1
+
+    if is_correct:
+        session['correct_count'] += 1
+
+    return jsonify({"result": is_correct, "correct_answer": correct_answer})
+
+@app.route('/result')
+def result():
+    correct_count = session.get('correct_count', 0)
+    incorrect_count = 10 - correct_count
+    
+    # 현재 퀴즈 타입을 세션에서 가져옴 (기본값은 'lyrics')
+    quiz_type = session.get('quiz_type', 'lyrics')
+    
+    return render_template('result.html', correct_count=correct_count, incorrect_count=incorrect_count, quiz_type=quiz_type)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)

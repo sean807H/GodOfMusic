@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음악의 신</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* 요소를 세로로 쌓기 */
+        height: 100vh;
+        margin: 0;
+    }
+
+    .logo,
+    .start {
+        text-align: center;
+        /* 내부 콘텐츠 가운데 정렬 */
+    }
+
+    .logo img {
+        width: 700px;
+        margin-bottom: 100px;
+    }
+
+    .start a img {
+        width: 100px;
+        margin-top: 20px;
+        /* 로고 이미지 간의 간격 */
+    }
+</style>
+
+<body>
+    <div class="logo">
+        <img src="/static/godofmusic.png" alt="">
+    </div>
+
+    <div class="start" onclick="openMain()">
+        <a href="#"><img src="/static/images/Start로고.png" alt="">
+        </a>
+    </div>
+
+    <script>
+        function openMain() {
+            window.location.href = '/choice';  // '/'에서 '/choice'로 변경
+        }
+    </script>
+
+</body>
+
+</html>
