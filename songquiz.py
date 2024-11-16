@@ -7,14 +7,14 @@ app.secret_key = secrets.token_bytes(16)  # 비밀 키 설정
 
 # 10개의 노래 데이터
 songquiz_data = [
-    {"audio": "/static/audio/Steady.mp3", "answer": "Steady,스테디", "music_video_url": "https://www.youtube.com/embed/IKlkZZv76Ho"},
+    {"audio": "/static/audio/손오공.mp3", "answer": "손오공", "music_video_url": "https://www.youtube.com/embed/-GQg25oP0S4"},
     {"audio": "/static/audio/Dunk Shot.mp3", "answer": "Dunk shot,덩크슛", "music_video_url": "https://www.youtube.com/embed/4vgac97VlCE"},
     {"audio": "/static/audio/Songbird.mp3", "answer": "Songbird,송버드", "music_video_url": "https://www.youtube.com/embed/2XqVNFBtVo4"},
     {"audio": "/static/audio/WISH.mp3", "answer": "Wish,위시", "music_video_url": "https://www.youtube.com/embed/hvQZs3k6Ytk"},
     {"audio": "/static/audio/Siren.mp3", "answer": "Siren,사이렌", "music_video_url": "https://www.youtube.com/embed/UOPcXDvGmRs"},
     {"audio": "/static/audio/부모님관람불가.mp3", "answer": "부모님관람불가", "music_video_url": "https://www.youtube.com/embed/YkCXVgcsGTU"},
-    {"audio": "/static/audio/Lucky.mp3", "answer": "Lucky,럭키", "music_video_url": "https://www.youtube.com/embed/3Q49g7M5MlU"},
-    {"audio": "/static/audio/One kiss.mp3", "answer": "One kiss,원키스", "music_video_url": "https://www.youtube.com/embed/46dquyaoe_c"},
+    {"audio": "/static/audio/박수.mp3", "answer": "박수", "music_video_url": "https://www.youtube.com/embed/CyzEtbG-sxY"},
+    {"audio": "/static/audio/Darl+ing.mp3", "answer": "Darl+ing, 달링", "music_video_url": "https://www.youtube.com/embed/bTtNV6hgDno"},
     {"audio": "/static/audio/Happy.mp3", "answer": "Happy,해피", "music_video_url": "https://www.youtube.com/embed/sWXGbkM0tBI"},
     {"audio": "/static/audio/Whiplash.mp3", "answer": "Whiplash,위플래쉬,위플래시", "music_video_url": "https://www.youtube.com/embed/jWQx2f-CErU"}
 ]
