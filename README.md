@@ -1,5 +1,5 @@
 # GitHuB
-- [GodOfMusic](https://github.com/GodOfMusic)
+- [GodOfMusic](https://github.com/sean807H/GodOfMusic.git)
 
 # 음악의 신 🎵
 사용자에게 노래 제목이나 가사 등을 제시하고, 사용자가
